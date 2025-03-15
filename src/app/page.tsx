@@ -2,12 +2,20 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JavaScript loads properly
+
 
 export default function Home() {
   // Track which dropdown is currently open
   // e.g. 'whoWeAre', 'whatWeDo', 'howYouCanHelp', 'careers', 'contactUs', or '' if none
   const [activeDropdown, setActiveDropdown] = useState("");
 
+    // Ensure Bootstrap dropdowns work correctly after hydration
+    useEffect(() => {
+      import("bootstrap/dist/js/bootstrap.bundle.min.js");
+    }, []);
+    
   // Toggle logic: if the user clicks the same menu again, close it; otherwise, open the new one.
   function handleToggleDropdown(menuName: string) {
     if (activeDropdown === menuName) {

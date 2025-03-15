@@ -1,5 +1,6 @@
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Metadata } from "next";
 import Script from "next/script"; // optional if you want the toggler to work
