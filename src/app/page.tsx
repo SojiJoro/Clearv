@@ -51,14 +51,14 @@ export default function Home() {
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
               {/* Home */}
-              <li className="nav-item">
+              <li className="nav-item me-3">
                 <Link className="nav-link active" href="/">
                   Home
                 </Link>
               </li>
 
               {/* Who We Are */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -94,7 +94,7 @@ export default function Home() {
               </li>
 
               {/* What We Do */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -140,7 +140,7 @@ export default function Home() {
               </li>
 
               {/* How You Can Help */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -176,7 +176,7 @@ export default function Home() {
               </li>
 
               {/* Careers */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
                   href="#"
@@ -243,11 +243,25 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <header className="hero">
-        <div className="overlay"></div>
+        {/* Darkened overlay for better text contrast */}
+        <div
+          className="overlay"
+          style={{ background: "rgba(0, 0, 0, 0.4)" }}
+        ></div>
         <div className="container text-center position-relative">
           <h1>Professional &amp; Person-Centered Care</h1>
-          <p>Enhancing Lives with Professional Care.</p>
-          <Link href="/who-we-are/mission" className="btn btn-primary btn-lg">
+          {/* Subheading or tagline */}
+          <h2 style={{ fontSize: "1.25rem", marginTop: "1rem", color: "#fff" }}>
+            We are your trusted partner in social care, delivering high-quality support.
+          </h2>
+          <p style={{ color: "#fff", marginTop: "0.5rem" }}>
+            Enhancing Lives with Professional Care.
+          </p>
+          <Link
+            href="/who-we-are/mission"
+            className="btn btn-primary btn-lg"
+            style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+          >
             Learn More
           </Link>
         </div>
@@ -273,8 +287,15 @@ export default function Home() {
                 <h5 className="card-title fw-bold">Independent Living</h5>
                 <p className="card-text">
                   We offer tailored support to help adults with autism live independently.
+                  <span className="d-block text-muted small">
+                    Fostering independence and self-confidence.
+                  </span>
                 </p>
-                <Link href="/what-we-do/adult-social-care" className="btn btn-outline-primary">
+                <Link
+                  href="/what-we-do/adult-social-care"
+                  className="btn btn-outline-primary"
+                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+                >
                   Read More
                 </Link>
               </div>
@@ -287,8 +308,15 @@ export default function Home() {
                 <h5 className="card-title fw-bold">Education &amp; Training</h5>
                 <p className="card-text">
                   Our specialized courses empower individuals to reach their full potential.
+                  <span className="d-block text-muted small">
+                    Building knowledge and life skills.
+                  </span>
                 </p>
-                <Link href="/what-we-do/education-training" className="btn btn-outline-success">
+                <Link
+                  href="/what-we-do/education-training"
+                  className="btn btn-outline-success"
+                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+                >
                   Read More
                 </Link>
               </div>
@@ -301,8 +329,15 @@ export default function Home() {
                 <h5 className="card-title fw-bold">Careers &amp; Vacancies</h5>
                 <p className="card-text">
                   Join our dedicated team and make a real difference in people’s lives.
+                  <span className="d-block text-muted small">
+                    Grow your career while helping others.
+                  </span>
                 </p>
-                <Link href="/careers/current-vacancies" className="btn btn-outline-warning">
+                <Link
+                  href="/careers/current-vacancies"
+                  className="btn btn-outline-warning"
+                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+                >
                   Read More
                 </Link>
               </div>
@@ -310,6 +345,157 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CONTACT SECTION */}
+      <section className="contact-section py-5 bg-light mb-0">
+        <div className="container">
+          <div className="row align-items-center">
+            {/* Contact Info */}
+            <div className="col-md-6 mb-4 mb-md-0">
+              <h2 className="fw-bold text-dark mb-3">Contact Us</h2>
+              <p className="text-muted">You can reach out by completing the form or emailing us at:</p>
+              <p className="fw-bold text-primary">
+                <a href="mailto:contact@clearvitalsocialcare.com" className="text-primary">
+                  contact@clearvitalsocialcare.com
+                </a>
+              </p>
+              <div className="mt-4">
+                <h5 className="text-muted mb-3">Follow us:</h5>
+                <a href="#" className="me-3 text-dark"><i className="fab fa-facebook fa-2x"></i></a>
+                <a href="#" className="me-3 text-dark"><i className="fab fa-linkedin fa-2x"></i></a>
+                <a href="#" className="text-dark"><i className="fab fa-twitter fa-2x"></i></a>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="col-md-6">
+              <form className="p-4 rounded shadow-sm bg-white">
+                <div className="mb-3">
+                  <label htmlFor="fullName" className="form-label fw-bold">
+                    Full Name
+                  </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    className="form-control rounded-pill px-3"
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="contactReason" className="form-label fw-bold">
+                    Reason for Contact
+                  </label>
+                  <select id="contactReason" className="form-control rounded-pill px-3">
+                    <option>Choose an option</option>
+                    <option>General Inquiry</option>
+                    <option>Support Services</option>
+                    <option>Careers</option>
+                  </select>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="phone" className="form-label fw-bold">
+                    Phone
+                  </label>
+                  <input
+                    id="phone"
+                    type="text"
+                    className="form-control rounded-pill px-3"
+                    placeholder="Phone"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label fw-bold">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    className="form-control rounded-pill px-3"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="message" className="form-label fw-bold">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    className="form-control rounded px-3"
+                    rows={4}
+                    placeholder="Type your message here"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100 rounded-pill"
+                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UPDATED FOOTER SECTION */}
+      <footer className="py-5 text-white" style={{ backgroundColor: "#164B68" }}>
+        <div className="container">
+          <div className="row mb-4 align-items-center">
+            <div className="col-md-6 text-center text-md-start">
+              <h2 className="fw-bold fs-4 mb-3">
+                Get in touch to start your Clear Vital Social Care journey with us today
+              </h2>
+              <p className="fs-6">
+                Build a brighter future in healthcare together; with us by your side, you can achieve
+                more than you think. When Clear Vital Social Care is involved, you're making a
+                difference every step of the way.
+              </p>
+            </div>
+            <div className="col-md-6 text-center text-md-end">
+              {/* Adjust these logos/paths as needed */}
+              <Image
+                src="/images/cqc.png"
+                alt="Care Quality Commission"
+                width={150}
+                height={50}
+                className="me-3"
+              />
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-4 mb-3 mb-md-0">
+              <h5 className="fw-bold fs-5">Clear Vital Social Care</h5>
+              <p>0456 5654 66544</p>
+              <p>
+                <a href="mailto:info@clearvitalsocialcare.com" className="text-white text-decoration-none">
+                  info@clearvitalsocialcare.com
+                </a>
+              </p>
+              <p>
+                Clear Vital Social Care
+                <br />
+                39 Vital Avenue, Somerset
+                <br />
+                T705 7AW
+              </p>
+            </div>
+
+            <div className="col-md-4 mb-3 mb-md-0 text-center text-md-start">
+              <h5 className="fw-bold fs-5">Join our newsletter</h5>
+              <form className="d-flex">
+                <input type="email" className="form-control me-4" placeholder="Email address" />
+                <button className="btn btn-light">Sign up</button>
+              </form>
+            </div>
+          </div>
+
+          <hr className="my-4 border-light" />
+        </div>
+      </footer>
     </main>
   );
 }
