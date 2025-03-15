@@ -4,11 +4,11 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Bootstrap JS for toggler & dropdowns
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Metadata } from "next";
 
-// If you have a separate Footer component, import it. Otherwise, 
-// we will place your "updated footer" code here.
+// If you have a separate Footer component, you could import it. 
+// Instead, we will place your "updated footer" code here.
 
 export const metadata: Metadata = {
   title: "Clear Vital Social Care",
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Copied your entire NAVBAR code here, unchanged.
   const [activeDropdown, setActiveDropdown] = useState("");
+
   function handleToggleDropdown(menuName: string) {
     if (activeDropdown === menuName) {
       setActiveDropdown("");
@@ -177,7 +178,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" href="/how-you-can-help/corporate-partnerships">
+                        <Link
+                          className="dropdown-item"
+                          href="/how-you-can-help/corporate-partnerships"
+                        >
                           Corporate Partnerships
                         </Link>
                       </li>
@@ -256,15 +260,69 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
 
-        {/* FOOTER (Optional) 
-            If you have a separate Footer component, import & use <Footer /> here.
-            Otherwise, paste your entire "updated footer" code below. 
-        */}
-        {/* 
-          <footer className="py-5 text-white" style={{ backgroundColor: "#164B68" }}>
-            ...
-          </footer> 
-        */}
+        {/* FOOTER - placed here so it appears on all pages */}
+        <footer className="py-5 text-white" style={{ backgroundColor: "#164B68" }}>
+          <div className="container">
+            <div className="row mb-4 align-items-center">
+              <div className="col-md-6 text-center text-md-start">
+                <h2 className="fw-bold fs-4 mb-3">
+                  Get in touch to start your Clear Vital Social Care journey with us today
+                </h2>
+                <p className="fs-6">
+                  Build a brighter future in healthcare together; with us by your side, you can
+                  achieve more than you think. When Clear Vital Social Care is involved, you're
+                  making a difference every step of the way.
+                </p>
+              </div>
+              <div className="col-md-6 text-center text-md-end">
+                <Image
+                  src="/images/cqc.png"
+                  alt="Care Quality Commission"
+                  width={150}
+                  height={50}
+                  className="me-3"
+                />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-4 mb-3 mb-md-0">
+                <h5 className="fw-bold fs-5">Clear Vital Social Care</h5>
+                <p>0456 5654 66544</p>
+                <p>
+                  <a
+                    href="mailto:info@clearvitalsocialcare.com"
+                    className="text-white text-decoration-none"
+                  >
+                    info@clearvitalsocialcare.com
+                  </a>
+                </p>
+                <p>
+                  Clear Vital Social Care
+                  <br />
+                  3r Floor, 12 Abbey Gardens
+                  <br />
+                  bOURNEMOUTH
+                  <br />
+                </p>
+              </div>
+
+              <div className="col-md-4 mb-3 mb-md-0 text-center text-md-start">
+                <h5 className="fw-bold fs-5">Join our newsletter</h5>
+                <form className="d-flex">
+                  <input
+                    type="email"
+                    className="form-control me-4"
+                    placeholder="Email address"
+                  />
+                  <button className="btn btn-light">Sign up</button>
+                </form>
+              </div>
+            </div>
+
+            <hr className="my-4 border-light" />
+          </div>
+        </footer>
       </body>
     </html>
   );
