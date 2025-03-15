@@ -1,98 +1,119 @@
-"use client";
+"use client"; // Ensures it's a client-side component
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
 
 export default function Navbar() {
-  const [activeDropdown, setActiveDropdown] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  function handleToggleDropdown(menuName: string) {
-    setActiveDropdown(activeDropdown === menuName ? "" : menuName);
-  }
+  // Function to close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+
+    // Attach event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      // Cleanup event listener
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
-      <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo */}
-        <Link className="navbar-brand d-flex align-items-center" href="/">
-          <Image src="/images/logo.png" alt="Clear Vital Logo" width={50} height={50} className="logo-stroke me-2" />
-          <span className="fw-bold">Clear Vital Social Care</span>
+    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top">
+      <div className="container">
+        <Link href="/" className="navbar-brand">
+          <img src="/logo.png" alt="Logo" className="h-8" />
+          Clear Vital Social Care
         </Link>
 
-        {/* Hamburger Button for Mobile */}
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        {/* Toggle Button for Mobile */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navigation Menu */}
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link active" href="/">Home</Link>
+              <Link href="/" className="nav-link">Home</Link>
             </li>
 
-            {/* Who We Are */}
-            <li className="nav-item dropdown">
-              <a
+            {/* Dropdown - Who We Are */}
+            <li className="nav-item dropdown" ref={dropdownRef}>
+              <button
                 className="nav-link dropdown-toggle"
-                onClick={() => handleToggleDropdown("whoWeAre")}
-                style={{ cursor: "pointer" }}
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                aria-expanded={isDropdownOpen ? "true" : "false"}
               >
                 Who We Are
-              </a>
-              {activeDropdown === "whoWeAre" && (
-                <ul className="dropdown-menu show">
-                  <li><Link className="dropdown-item" href="/who-we-are/mission">Our Mission</Link></li>
-                  <li><Link className="dropdown-item" href="/who-we-are/history">Our History</Link></li>
-                  <li><Link className="dropdown-item" href="/who-we-are/values">Our Values</Link></li>
-                  <li><Link className="dropdown-item" href="/who-we-are/team">Our Team</Link></li>
-                </ul>
-              )}
+              </button>
+              <ul className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
+                <li>
+                  <Link
+                    href="/who-we-are/mission"
+                    className="dropdown-item"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Our Mission
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/who-we-are/history"
+                    className="dropdown-item"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Our History
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/who-we-are/values"
+                    className="dropdown-item"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Our Values
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/who-we-are/team"
+                    className="dropdown-item"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    Our Team
+                  </Link>
+                </li>
+              </ul>
             </li>
 
-            {/* What We Do */}
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                onClick={() => handleToggleDropdown("whatWeDo")}
-                style={{ cursor: "pointer" }}
-              >
-                What We Do
-              </a>
-              {activeDropdown === "whatWeDo" && (
-                <ul className="dropdown-menu show">
-                  <li><Link className="dropdown-item" href="/what-we-do/services">Our Services</Link></li>
-                  <li><Link className="dropdown-item" href="/what-we-do/approach">Our Approach</Link></li>
-                </ul>
-              )}
-            </li>
-
-            {/* How You Can Help */}
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                onClick={() => handleToggleDropdown("help")}
-                style={{ cursor: "pointer" }}
-              >
-                How You Can Help
-              </a>
-              {activeDropdown === "help" && (
-                <ul className="dropdown-menu show">
-                  <li><Link className="dropdown-item" href="/how-you-can-help/donate">Donate</Link></li>
-                  <li><Link className="dropdown-item" href="/how-you-can-help/volunteer">Volunteer</Link></li>
-                </ul>
-              )}
-            </li>
-
-            {/* Careers */}
             <li className="nav-item">
-              <Link className="nav-link" href="/careers">Careers</Link>
+              <Link href="/what-we-do" className="nav-link">What We Do</Link>
             </li>
-
-            {/* Contact Us */}
             <li className="nav-item">
-              <Link className="nav-link" href="/contact-us">Contact Us</Link>
+              <Link href="/how-you-can-help" className="nav-link">How You Can Help</Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/careers" className="nav-link">Careers</Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/contact-us" className="nav-link">Contact Us</Link>
             </li>
           </ul>
         </div>
