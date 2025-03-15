@@ -7,7 +7,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Function to close dropdown when clicking outside
+  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -63,9 +63,25 @@ export default function Navbar() {
               </ul>
             </li>
 
-            <li className="nav-item">
-              <Link href="/what-we-do" className="nav-link">What We Do</Link>
+            {/* Dropdown - What We Do */}
+            <li className="nav-item dropdown" ref={dropdownRef}>
+              <button
+                className="nav-link dropdown-toggle"
+                onClick={() => setOpenDropdown(openDropdown === "what-we-do" ? null : "what-we-do")}
+                aria-expanded={openDropdown === "what-we-do"}
+              >
+                What We Do
+              </button>
+              <ul className={`dropdown-menu ${openDropdown === "what-we-do" ? "show" : ""}`}>
+                <li><Link href="/what-we-do/adult-social-care" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Adult Social Care</Link></li>
+                <li><Link href="/what-we-do/children-families" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Children & Families</Link></li>
+                <li><Link href="/what-we-do/supported-living" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Supported Living</Link></li>
+                <li><Link href="/what-we-do/residential-care" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Residential Care</Link></li>
+                <li><Link href="/what-we-do/day-services" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Day Services</Link></li>
+                <li><Link href="/what-we-do/education-training" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Education & Training</Link></li>
+              </ul>
             </li>
+
             <li className="nav-item">
               <Link href="/how-you-can-help" className="nav-link">How You Can Help</Link>
             </li>
