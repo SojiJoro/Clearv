@@ -1,9 +1,10 @@
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JavaScript loads
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { Metadata } from "next";
-import Script from "next/script"; // optional if you want the toggler to work
 
 export const metadata: Metadata = {
   title: "Clear Vital Social Care",
@@ -17,20 +18,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* If you want the Bootstrap toggler to work in page.tsx, keep this Script. */}
-        <Script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-          strategy="beforeInteractive"
-        />
-      </head>
       <body>
-        {/* No Navbar here. Only the one in page.tsx. */}
+        {/* Navigation Bar - Always visible on all pages */}
+        <Navbar />
 
-        {/* You can add margin-top here if you have a fixed-top navbar in page.tsx */}
-        <main style={{ marginTop: "80px" }}>
+        {/* Main content area with margin so it doesn't overlap with the navbar */}
+        <main style={{ marginTop: "80px", minHeight: "80vh" }}>
           {children}
         </main>
+
+        {/* Footer - Always visible on all pages */}
+        <Footer />
       </body>
     </html>
   );
