@@ -469,7 +469,7 @@ export default function Home() {
           <div className="row">
             <div className="col-md-4 mb-3 mb-md-0">
               <h5 className="fw-bold fs-5">Clear Vital Social Care</h5>
-              <p>0456 5654 66544</p>
+              <p>0483 733 7265</p>
               <p>
                 <a href="mailto:info@clearvitalsocialcare.com" className="text-white text-decoration-none">
                   info@clearvitalsocialcare.com
@@ -478,9 +478,9 @@ export default function Home() {
               <p>
                 Clear Vital Social Care
                 <br />
-                39 Vital Avenue, Somerset
+                39 Bournemouth Road
                 <br />
-                T705 7AW
+                Telford, TF1 1AA
               </p>
             </div>
 
