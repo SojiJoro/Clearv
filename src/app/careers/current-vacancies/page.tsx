@@ -1,24 +1,19 @@
-// src/app/careers/current-vacancies/page.tsx
+"use client";
 
-import VacanciesClient from "./VacanciesClient";
+import { useState } from "react";
 
-// Example function that fetches or returns vacancy data on the server
-// Replace with a real API call, database query, or any server-side logic
-async function getVacanciesData() {
-  // For a real API:
-  // const res = await fetch("https://example.com/api/vacancies", { cache: "no-store" });
-  // if (!res.ok) throw new Error("Failed to fetch vacancies");
-  // return await res.json();
+export default function CurrentVacanciesPage() {
+  // Local search term state
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // For demonstration, return a static array:
-  return [
+  // Example static vacancies (replace with your own data)
+  const vacanciesData = [
     {
       id: 1,
       title: "Support Worker",
       location: "Bournemouth",
       description:
         "Provide daily support for adults with autism in a residential setting. Foster independence and wellbeing.",
-      applyLink: "/careers/apply?position=support-worker",
     },
     {
       id: 2,
@@ -26,7 +21,6 @@ async function getVacanciesData() {
       location: "Poole",
       description:
         "Engage with local partners and families to deliver high-quality community-based support programmes.",
-      applyLink: "/careers/apply?position=community-outreach-officer",
     },
     {
       id: 3,
@@ -34,16 +28,57 @@ async function getVacanciesData() {
       location: "Bournemouth",
       description:
         "Assist individuals with personal care, daily living tasks, and social activities in a supported living environment.",
-      applyLink: "/careers/apply?position=care-assistant",
     },
-    // Add more vacancies as needed
   ];
-}
 
-// By default, files in `app/` are Server Components, so we can run server-side code here
-export default async function CurrentVacanciesPage() {
-  const vacancies = await getVacanciesData();
+  // Filter vacancies by title or location
+  const filteredVacancies = vacanciesData.filter((vacancy) => {
+    const lowerSearch = searchTerm.toLowerCase();
+    return (
+      vacancy.title.toLowerCase().includes(lowerSearch) ||
+      vacancy.location.toLowerCase().includes(lowerSearch)
+    );
+  });
 
-  // Render the client component, passing the data as props
-  return <VacanciesClient vacancies={vacancies} />;
+  return (
+    <div className="container my-5">
+      <h1 className="mb-4">Current Vacancies</h1>
+
+      {/* Search bar */}
+      <div className="mb-4">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Search by role or location..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
+      {/* Vacancy list */}
+      {filteredVacancies.length > 0 ? (
+        <div className="row">
+          {filteredVacancies.map((vacancy) => (
+            <div key={vacancy.id} className="col-md-6 mb-4">
+              <div className="card h-100 shadow-sm">
+                <div className="card-body">
+                  <h5 className="card-title fw-bold">{vacancy.title}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    Location: {vacancy.location}
+                  </h6>
+                  <p className="card-text">{vacancy.description}</p>
+                  {/* Adjust link as needed */}
+                  <a href="#" className="btn btn-primary">
+                    Apply Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No vacancies found.</p>
+      )}
+    </div>
+  );
 }
