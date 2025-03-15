@@ -478,9 +478,10 @@ export default function Home() {
               <p>
                 Clear Vital Social Care
                 <br />
-                39 Vital Avenue, Somerset
+                3r Floor, 12 Abbey Gardens
                 <br />
-                T705 7AW
+                bOURNEMOUTH
+                <br />
               </p>
             </div>
 
