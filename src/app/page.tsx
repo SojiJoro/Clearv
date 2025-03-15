@@ -1,21 +1,20 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Ensure Bootstrap JavaScript loads properly
-
 
 export default function Home() {
   // Track which dropdown is currently open
   // e.g. 'whoWeAre', 'whatWeDo', 'howYouCanHelp', 'careers', 'contactUs', or '' if none
   const [activeDropdown, setActiveDropdown] = useState("");
 
-    // Ensure Bootstrap dropdowns work correctly after hydration
-    useEffect(() => {
-      import("bootstrap/dist/js/bootstrap.bundle.min.js");
-    }, []);
-    
+  // Ensure Bootstrap dropdowns work correctly after hydration
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   // Toggle logic: if the user clicks the same menu again, close it; otherwise, open the new one.
   function handleToggleDropdown(menuName: string) {
     if (activeDropdown === menuName) {
@@ -27,10 +26,15 @@ export default function Home() {
 
   return (
     <main>
-      {/* NAVIGATION BAR */}
+      {/*
+      ---------------------------------------------------------------------------
+      LOCAL NAVBAR (REMOVED / COMMENTED OUT)
+      If you want to rely on the global layout.tsx navbar, comment out or remove 
+      these lines. The code is kept here for reference but no longer runs.
+      ---------------------------------------------------------------------------
+
       <nav className="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div className="container d-flex justify-content-between align-items-center">
-          {/* Logo */}
           <Link className="navbar-brand d-flex align-items-center" href="/">
             <Image
               src="/images/logo.png"
@@ -42,7 +46,6 @@ export default function Home() {
             <span className="fw-bold">Clear Vital Social Care</span>
           </Link>
 
-          {/* Hamburger Button */}
           <button
             className="navbar-toggler"
             type="button"
@@ -55,17 +58,14 @@ export default function Home() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Desktop Menu */}
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
-              {/* Home */}
               <li className="nav-item me-3">
                 <Link className="nav-link active" href="/">
                   Home
                 </Link>
               </li>
 
-              {/* Who We Are */}
               <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
@@ -101,7 +101,6 @@ export default function Home() {
                 )}
               </li>
 
-              {/* What We Do */}
               <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
@@ -147,7 +146,6 @@ export default function Home() {
                 )}
               </li>
 
-              {/* How You Can Help */}
               <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
@@ -183,7 +181,6 @@ export default function Home() {
                 )}
               </li>
 
-              {/* Careers */}
               <li className="nav-item dropdown me-3">
                 <a
                   className="nav-link dropdown-toggle"
@@ -214,7 +211,6 @@ export default function Home() {
                 )}
               </li>
 
-              {/* Contact Us */}
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -248,6 +244,7 @@ export default function Home() {
           </div>
         </div>
       </nav>
+      */}
 
       {/* HERO SECTION */}
       <header className="hero">
