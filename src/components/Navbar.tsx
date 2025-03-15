@@ -4,27 +4,19 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Function to close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsDropdownOpen(false);
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
       }
     }
 
-    // Attach event listener
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      // Cleanup event listener
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -58,48 +50,16 @@ export default function Navbar() {
             <li className="nav-item dropdown" ref={dropdownRef}>
               <button
                 className="nav-link dropdown-toggle"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                aria-expanded={isDropdownOpen ? "true" : "false"}
+                onClick={() => setOpenDropdown(openDropdown === "who-we-are" ? null : "who-we-are")}
+                aria-expanded={openDropdown === "who-we-are"}
               >
                 Who We Are
               </button>
-              <ul className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}>
-                <li>
-                  <Link
-                    href="/who-we-are/mission"
-                    className="dropdown-item"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Our Mission
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/who-we-are/history"
-                    className="dropdown-item"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Our History
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/who-we-are/values"
-                    className="dropdown-item"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Our Values
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/who-we-are/team"
-                    className="dropdown-item"
-                    onClick={() => setIsDropdownOpen(false)}
-                  >
-                    Our Team
-                  </Link>
-                </li>
+              <ul className={`dropdown-menu ${openDropdown === "who-we-are" ? "show" : ""}`}>
+                <li><Link href="/who-we-are/mission" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Our Mission</Link></li>
+                <li><Link href="/who-we-are/history" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Our History</Link></li>
+                <li><Link href="/who-we-are/values" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Our Values</Link></li>
+                <li><Link href="/who-we-are/team" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Our Team</Link></li>
               </ul>
             </li>
 
@@ -112,8 +72,21 @@ export default function Navbar() {
             <li className="nav-item">
               <Link href="/careers" className="nav-link">Careers</Link>
             </li>
-            <li className="nav-item">
-              <Link href="/contact-us" className="nav-link">Contact Us</Link>
+
+            {/* Dropdown - Contact Us */}
+            <li className="nav-item dropdown" ref={dropdownRef}>
+              <button
+                className="nav-link dropdown-toggle"
+                onClick={() => setOpenDropdown(openDropdown === "contact-us" ? null : "contact-us")}
+                aria-expanded={openDropdown === "contact-us"}
+              >
+                Contact Us
+              </button>
+              <ul className={`dropdown-menu ${openDropdown === "contact-us" ? "show" : ""}`}>
+                <li><Link href="/contact-us/customer-support" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Customer Support</Link></li>
+                <li><Link href="/contact-us/complaints" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Complaints</Link></li>
+                <li><Link href="/contact-us/feedback" className="dropdown-item" onClick={() => setOpenDropdown(null)}>Feedback</Link></li>
+              </ul>
             </li>
           </ul>
         </div>
