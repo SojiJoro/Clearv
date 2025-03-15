@@ -25,7 +25,7 @@ export default function Navbar() {
           <span className="fw-bold">Clear Vital Social Care</span>
         </Link>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Toggler */}
         <button
           className="navbar-toggler"
           type="button"
@@ -38,9 +38,10 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navigation Menu */}
+        {/* Collapsible Menu */}
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
+            {/* Home */}
             <li className="nav-item me-3">
               <Link className="nav-link" href="/">
                 Home
@@ -53,7 +54,7 @@ export default function Navbar() {
                 className="nav-link dropdown-toggle"
                 href="#"
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent jump to top
+                  e.preventDefault();
                   handleToggleDropdown("whoWeAre");
                 }}
               >
@@ -85,7 +86,7 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* ...other dropdowns... */}
+            {/* Replicate the same pattern for other dropdowns */}
           </ul>
         </div>
       </div>
