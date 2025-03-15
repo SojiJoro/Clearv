@@ -455,7 +455,6 @@ export default function Home() {
               </p>
             </div>
             <div className="col-md-6 text-center text-md-end">
-              {/* Adjust these logos/paths as needed */}
               <Image
                 src="/images/cqc.png"
                 alt="Care Quality Commission"
@@ -484,7 +483,6 @@ export default function Home() {
                 <br />
               </p>
             </div>
-
             <div className="col-md-4 mb-3 mb-md-0 text-center text-md-start">
               <h5 className="fw-bold fs-5">Join our newsletter</h5>
               <form className="d-flex">
