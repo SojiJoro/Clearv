@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -19,7 +20,7 @@ export default function Navbar() {
           <span className="fw-bold">Clear Vital Social Care</span>
         </Link>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Button for Mobile */}
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +34,11 @@ export default function Navbar() {
 
             {/* Who We Are */}
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" onClick={() => handleToggleDropdown("whoWeAre")}>
+              <a
+                className="nav-link dropdown-toggle"
+                onClick={() => handleToggleDropdown("whoWeAre")}
+                style={{ cursor: "pointer" }}
+              >
                 Who We Are
               </a>
               {activeDropdown === "whoWeAre" && (
@@ -44,6 +49,50 @@ export default function Navbar() {
                   <li><Link className="dropdown-item" href="/who-we-are/team">Our Team</Link></li>
                 </ul>
               )}
+            </li>
+
+            {/* What We Do */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                onClick={() => handleToggleDropdown("whatWeDo")}
+                style={{ cursor: "pointer" }}
+              >
+                What We Do
+              </a>
+              {activeDropdown === "whatWeDo" && (
+                <ul className="dropdown-menu show">
+                  <li><Link className="dropdown-item" href="/what-we-do/services">Our Services</Link></li>
+                  <li><Link className="dropdown-item" href="/what-we-do/approach">Our Approach</Link></li>
+                </ul>
+              )}
+            </li>
+
+            {/* How You Can Help */}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                onClick={() => handleToggleDropdown("help")}
+                style={{ cursor: "pointer" }}
+              >
+                How You Can Help
+              </a>
+              {activeDropdown === "help" && (
+                <ul className="dropdown-menu show">
+                  <li><Link className="dropdown-item" href="/how-you-can-help/donate">Donate</Link></li>
+                  <li><Link className="dropdown-item" href="/how-you-can-help/volunteer">Volunteer</Link></li>
+                </ul>
+              )}
+            </li>
+
+            {/* Careers */}
+            <li className="nav-item">
+              <Link className="nav-link" href="/careers">Careers</Link>
+            </li>
+
+            {/* Contact Us */}
+            <li className="nav-item">
+              <Link className="nav-link" href="/contact-us">Contact Us</Link>
             </li>
           </ul>
         </div>
