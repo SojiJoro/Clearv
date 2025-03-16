@@ -1,29 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
-  const [activeDropdown, setActiveDropdown] = useState("");
-
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Load Bootstrap JS for dropdowns, etc.
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
   }, []);
 
-  // Toggle for custom dropdowns (Who We Are, How You Can Help)
-  function handleToggleDropdown(menuName: string, e: React.MouseEvent) {
-    e.preventDefault();
-    setActiveDropdown(activeDropdown === menuName ? "" : menuName);
-  }
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo / Home Link */}
+        {/* Logo & Home Link */}
         <Link href="/" passHref>
           <a className="navbar-brand d-flex align-items-center">
             <Image
@@ -37,7 +28,7 @@ export default function Navbar() {
           </a>
         </Link>
 
-        {/* Hamburger Toggler (mobile) */}
+        {/* Mobile Toggler */}
         <button
           className="navbar-toggler"
           type="button"
@@ -60,56 +51,61 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Who We Are (custom dropdown) */}
+            {/* Who We Are (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
-                onClick={(e) => handleToggleDropdown("whoWeAre", e)}
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 Who We Are
               </a>
-              {activeDropdown === "whoWeAre" && (
-                <ul className="dropdown-menu show">
-                  <li>
-                    <Link href="/who-we-are/mission" passHref>
-                      <a className="dropdown-item">Our Mission</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/who-we-are/history" passHref>
-                      <a className="dropdown-item">Our History</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/who-we-are/values" passHref>
-                      <a className="dropdown-item">Our Values</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/who-we-are/team" passHref>
-                      <a className="dropdown-item">Our Team</a>
-                    </Link>
-                  </li>
-                </ul>
-              )}
+              <ul className="dropdown-menu">
+                <li>
+                  <Link href="/who-we-are/mission" passHref>
+                    <a className="dropdown-item">Our Mission</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/who-we-are/history" passHref>
+                    <a className="dropdown-item">Our History</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/who-we-are/values" passHref>
+                    <a className="dropdown-item">Our Values</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/who-we-are/team" passHref>
+                    <a className="dropdown-item">Our Team</a>
+                  </Link>
+                </li>
+              </ul>
             </li>
 
-            {/* What We Do (Bootstrap default dropdown) */}
-            <li className="nav-item dropdown me-3">
-              {/* This link goes directly to /what-we-do instead of "#" */}
+            {/* What We Do: Text link + caret toggle */}
+            <li className="nav-item dropdown me-3 d-flex align-items-center">
+              {/* 1) The text link: goes directly to /what-we-do */}
               <Link href="/what-we-do" passHref>
-                <a
-                  className="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown" // Tells Bootstrap to handle the dropdown
-                  aria-expanded="false"
-                  role="button"
-                >
-                  What We Do
-                </a>
+                <a className="nav-link">What We Do</a>
               </Link>
-              {/* Sub-links appear in a standard Bootstrap dropdown */}
+
+              {/* 2) The caret button: toggles the dropdown */}
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ marginLeft: "-4px" }} 
+                /* slight negative margin to keep caret close to text */
+              >
+                <span className="visually-hidden">Toggle Dropdown</span>
+              </a>
+
               <ul className="dropdown-menu">
                 <li>
                   <Link href="/what-we-do/adult-social-care" passHref>
@@ -144,40 +140,39 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* How You Can Help (custom dropdown) */}
+            {/* How You Can Help (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
-                onClick={(e) => handleToggleDropdown("howYouCanHelp", e)}
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 How You Can Help
               </a>
-              {activeDropdown === "howYouCanHelp" && (
-                <ul className="dropdown-menu show">
-                  <li>
-                    <Link href="/how-you-can-help/volunteer" passHref>
-                      <a className="dropdown-item">Volunteer</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/how-you-can-help/donate" passHref>
-                      <a className="dropdown-item">Donate</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/how-you-can-help/fundraising" passHref>
-                      <a className="dropdown-item">Fundraising</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/how-you-can-help/corporate-partnerships" passHref>
-                      <a className="dropdown-item">Corporate Partnerships</a>
-                    </Link>
-                  </li>
-                </ul>
-              )}
+              <ul className="dropdown-menu">
+                <li>
+                  <Link href="/how-you-can-help/volunteer" passHref>
+                    <a className="dropdown-item">Volunteer</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-you-can-help/donate" passHref>
+                    <a className="dropdown-item">Donate</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-you-can-help/fundraising" passHref>
+                    <a className="dropdown-item">Fundraising</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/how-you-can-help/corporate-partnerships" passHref>
+                    <a className="dropdown-item">Corporate Partnerships</a>
+                  </Link>
+                </li>
+              </ul>
             </li>
 
             {/* Careers (Single Link) */}
