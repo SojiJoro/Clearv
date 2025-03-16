@@ -1,5 +1,5 @@
 import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css"; // ✅ Keep only CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -13,14 +13,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        {/* Navigation Bar */}
-        <Navbar />
+        <div className="page-container">
+          {/* Navigation Bar */}
+          <Navbar />
 
-        {/* Page Content */}
-        <main className="container my-5">{children}</main>
+          {/* Page Content */}
+          <main className="content">{children}</main>
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </div>
       </body>
     </html>
   );
