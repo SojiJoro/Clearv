@@ -7,23 +7,23 @@ import Image from "next/image";
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState("");
 
-  // Load Bootstrap JS once the component mounts (to handle dropdowns, etc.)
   useEffect(() => {
     if (typeof window !== "undefined") {
+      // Load Bootstrap JS for dropdowns, etc.
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
   }, []);
 
-  // Toggle dropdown logic
-  function handleToggleDropdown(menuName: string, event: React.MouseEvent) {
-    event.preventDefault(); // Prevent the default link navigation
+  // Toggle for custom dropdowns (Who We Are, How You Can Help)
+  function handleToggleDropdown(menuName: string, e: React.MouseEvent) {
+    e.preventDefault();
     setActiveDropdown(activeDropdown === menuName ? "" : menuName);
   }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo & Home Link */}
+        {/* Logo / Home Link */}
         <Link href="/" passHref>
           <a className="navbar-brand d-flex align-items-center">
             <Image
@@ -37,7 +37,7 @@ export default function Navbar() {
           </a>
         </Link>
 
-        {/* Hamburger Button (for mobile) */}
+        {/* Hamburger Toggler (mobile) */}
         <button
           className="navbar-toggler"
           type="button"
@@ -60,7 +60,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Who We Are (Dropdown) */}
+            {/* Who We Are (custom dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
@@ -96,54 +96,55 @@ export default function Navbar() {
               )}
             </li>
 
-            {/* What We Do (Dropdown + Link to /what-we-do) */}
+            {/* What We Do (Bootstrap default dropdown) */}
             <li className="nav-item dropdown me-3">
+              {/* This link goes directly to /what-we-do instead of "#" */}
               <Link href="/what-we-do" passHref>
                 <a
                   className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown" // Tells Bootstrap to handle the dropdown
+                  aria-expanded="false"
                   role="button"
-                  onClick={(e) => handleToggleDropdown("whatWeDo", e)}
                 >
                   What We Do
                 </a>
               </Link>
-              {activeDropdown === "whatWeDo" && (
-                <ul className="dropdown-menu show">
-                  <li>
-                    <Link href="/what-we-do/adult-social-care" passHref>
-                      <a className="dropdown-item">Adult Social Care</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/what-we-do/children-families" passHref>
-                      <a className="dropdown-item">Children &amp; Families</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/what-we-do/supported-living" passHref>
-                      <a className="dropdown-item">Supported Living</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/what-we-do/residential-care" passHref>
-                      <a className="dropdown-item">Residential Care</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/what-we-do/day-services" passHref>
-                      <a className="dropdown-item">Day Services</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/what-we-do/education-training" passHref>
-                      <a className="dropdown-item">Education &amp; Training</a>
-                    </Link>
-                  </li>
-                </ul>
-              )}
+              {/* Sub-links appear in a standard Bootstrap dropdown */}
+              <ul className="dropdown-menu">
+                <li>
+                  <Link href="/what-we-do/adult-social-care" passHref>
+                    <a className="dropdown-item">Adult Social Care</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/children-families" passHref>
+                    <a className="dropdown-item">Children &amp; Families</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/supported-living" passHref>
+                    <a className="dropdown-item">Supported Living</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/residential-care" passHref>
+                    <a className="dropdown-item">Residential Care</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/day-services" passHref>
+                    <a className="dropdown-item">Day Services</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/what-we-do/education-training" passHref>
+                    <a className="dropdown-item">Education &amp; Training</a>
+                  </Link>
+                </li>
+              </ul>
             </li>
 
-            {/* How You Can Help (Dropdown) */}
+            {/* How You Can Help (custom dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
