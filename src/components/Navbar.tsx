@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function Navbar() {
   useEffect(() => {
-    // Load Bootstrap JS if you need modals, collapses, etc.
-    // We are using pure CSS for the hover dropdown, so no data-bs-toggle on the links.
+    // Load Bootstrap JS if needed (e.g., for modals).
+    // The dropdown is purely hover-based via CSS, so no data-bs-toggle here.
     if (typeof window !== "undefined") {
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
@@ -80,7 +80,7 @@ export default function Navbar() {
                 <a className="nav-link dropdown-toggle">What We Do</a>
               </Link>
               <div className="dropdown-menu">
-                {/* Overview item leads to /what-we-do */}
+                {/* Overview link to /what-we-do */}
                 <Link href="/what-we-do" passHref>
                   <a className="dropdown-item">Overview</a>
                 </Link>
