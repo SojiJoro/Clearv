@@ -1,6 +1,18 @@
-/* === NAVBAR STYLES === */
+/* === GLOBAL STYLES === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
 
-/* Navbar - Change to White */
+/* Ensure the main content takes up available space */
+main {
+  flex: 1;
+}
+
+/* === NAVBAR STYLES === */
 #mainNav {
   background-color: #FFFFFF !important;
   padding: 15px 20px;
@@ -93,6 +105,17 @@
   border: 2px solid #164B68;
 }
 
+/* === MISSION PAGE STYLES (Fix for Content Not Showing Properly) === */
+.mission-section {
+  min-height: 80vh; /* Ensures the section takes enough height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers the content vertically */
+  align-items: center; /* Centers content horizontally */
+  text-align: center;
+  padding: 100px 0; /* Adjusts spacing */
+}
+
 /* === MAIN CONTENT === */
 .container {
   max-width: 1200px;
@@ -122,11 +145,14 @@ h2 {
   font-size: 2.5rem;
 }
 
-/* === FOOTER === */
+/* === FOOTER (Fix for Sticky Footer) === */
 footer {
+  width: 100%;
   background-color: #164B68;
   color: white;
   padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Push footer to bottom */
 }
 
 /* Social Media Icons */
@@ -152,5 +178,10 @@ footer a:hover {
   .hero .btn {
       font-size: 1rem;
       padding: 10px 20px;
+  }
+
+  /* Adjust mission section spacing for mobile */
+  .mission-section {
+      padding: 60px 20px;
   }
 }
