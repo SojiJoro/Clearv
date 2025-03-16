@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Navbar() {
   useEffect(() => {
-    // Load Bootstrap JS to enable dropdown toggling on mobile
+    // Load Bootstrap JS for toggling on mobile
     if (typeof window !== "undefined") {
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
@@ -97,7 +97,6 @@ export default function Navbar() {
                 What We Do
               </a>
               <ul className="dropdown-menu">
-                {/* Overview link to /what-we-do */}
                 <li>
                   <Link href="/what-we-do" passHref>
                     <a className="dropdown-item">Overview</a>

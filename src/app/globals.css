@@ -67,9 +67,14 @@ footer {
   background-color: #FFFFFF;
   border: 1px solid #ddd;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  display: none; /* hidden by default, shown on hover for desktop */
-  position: absolute; /* so it floats */
+  display: none; /* hidden by default */
+  position: absolute;
   margin-top: 0;
+}
+
+/* Allow .show to display on mobile */
+#mainNav .dropdown-menu.show {
+  display: block !important;
 }
 
 /* Dropdown items styling */
