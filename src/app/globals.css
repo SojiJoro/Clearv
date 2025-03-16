@@ -38,17 +38,19 @@ footer {
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Adds slight shadow */
 }
 
-/* Navbar Links - Change to Dark Blue */
+/* Remove underline from brand and nav links */
 #mainNav .navbar-brand,
 #mainNav .nav-link {
   color: #164B68 !important;
   font-weight: bold;
   transition: color 0.3s ease-in-out;
+  text-decoration: none !important; /* Removes underline */
 }
 
-/* Navbar Hover Effect */
+/* Navbar Hover Effect (change colour, but no underline) */
 #mainNav .nav-link:hover {
   color: #45AAE0 !important;
+  text-decoration: none !important; /* Keep underline off on hover */
 }
 
 /* Change dropdown menu background */
