@@ -9,7 +9,8 @@ export default function Navbar() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      import("bootstrap/dist/js/bootstrap.bundle.min.js"); // ✅ Load Bootstrap JS only on the client-side
+      // ✅ Fix: Use require() instead of import() to prevent TypeScript errors
+      require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
   }, []);
 
