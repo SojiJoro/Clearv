@@ -7,33 +7,37 @@ import Image from "next/image";
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState("");
 
+  // Load Bootstrap JS once the component mounts (to handle dropdowns, etc.)
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // ✅ Fix: Use require() instead of import() to prevent TypeScript errors
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
   }, []);
 
-  function handleToggleDropdown(menuName: string) {
+  // Toggle dropdown logic
+  function handleToggleDropdown(menuName: string, event: React.MouseEvent) {
+    event.preventDefault(); // Prevent the default link navigation
     setActiveDropdown(activeDropdown === menuName ? "" : menuName);
   }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo */}
-        <Link className="navbar-brand d-flex align-items-center" href="/">
-          <Image
-            src="/images/logo.png"
-            alt="Clear Vital Logo"
-            width={50}
-            height={50}
-            className="logo-stroke me-2"
-          />
-          <span className="fw-bold">Clear Vital Social Care</span>
+        {/* Logo & Home Link */}
+        <Link href="/" passHref>
+          <a className="navbar-brand d-flex align-items-center">
+            <Image
+              src="/images/logo.png"
+              alt="Clear Vital Logo"
+              width={50}
+              height={50}
+              className="logo-stroke me-2"
+            />
+            <span className="fw-bold">Clear Vital Social Care</span>
+          </a>
         </Link>
 
-        {/* Hamburger Toggler */}
+        {/* Hamburger Button (for mobile) */}
         <button
           className="navbar-toggler"
           type="button"
@@ -51,149 +55,141 @@ export default function Navbar() {
           <ul className="navbar-nav">
             {/* Home */}
             <li className="nav-item me-3">
-              <Link className="nav-link" href="/">
-                Home
+              <Link href="/" passHref>
+                <a className="nav-link">Home</a>
               </Link>
             </li>
 
-            {/* Who We Are */}
+            {/* Who We Are (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleToggleDropdown("whoWeAre");
-                }}
+                onClick={(e) => handleToggleDropdown("whoWeAre", e)}
               >
                 Who We Are
               </a>
               {activeDropdown === "whoWeAre" && (
                 <ul className="dropdown-menu show">
                   <li>
-                    <Link className="dropdown-item" href="/who-we-are/mission">
-                      Our Mission
+                    <Link href="/who-we-are/mission" passHref>
+                      <a className="dropdown-item">Our Mission</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/who-we-are/history">
-                      Our History
+                    <Link href="/who-we-are/history" passHref>
+                      <a className="dropdown-item">Our History</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/who-we-are/values">
-                      Our Values
+                    <Link href="/who-we-are/values" passHref>
+                      <a className="dropdown-item">Our Values</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/who-we-are/team">
-                      Our Team
+                    <Link href="/who-we-are/team" passHref>
+                      <a className="dropdown-item">Our Team</a>
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
 
-            {/* What We Do */}
+            {/* What We Do (Dropdown + Link to /what-we-do) */}
             <li className="nav-item dropdown me-3">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleToggleDropdown("whatWeDo");
-                }}
-              >
-                What We Do
-              </a>
+              <Link href="/what-we-do" passHref>
+                <a
+                  className="nav-link dropdown-toggle"
+                  role="button"
+                  onClick={(e) => handleToggleDropdown("whatWeDo", e)}
+                >
+                  What We Do
+                </a>
+              </Link>
               {activeDropdown === "whatWeDo" && (
                 <ul className="dropdown-menu show">
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/adult-social-care">
-                      Adult Social Care
+                    <Link href="/what-we-do/adult-social-care" passHref>
+                      <a className="dropdown-item">Adult Social Care</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/children-families">
-                      Children &amp; Families
+                    <Link href="/what-we-do/children-families" passHref>
+                      <a className="dropdown-item">Children &amp; Families</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/supported-living">
-                      Supported Living
+                    <Link href="/what-we-do/supported-living" passHref>
+                      <a className="dropdown-item">Supported Living</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/residential-care">
-                      Residential Care
+                    <Link href="/what-we-do/residential-care" passHref>
+                      <a className="dropdown-item">Residential Care</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/day-services">
-                      Day Services
+                    <Link href="/what-we-do/day-services" passHref>
+                      <a className="dropdown-item">Day Services</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/what-we-do/education-training">
-                      Education &amp; Training
+                    <Link href="/what-we-do/education-training" passHref>
+                      <a className="dropdown-item">Education &amp; Training</a>
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
 
-            {/* How You Can Help */}
+            {/* How You Can Help (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleToggleDropdown("howYouCanHelp");
-                }}
+                onClick={(e) => handleToggleDropdown("howYouCanHelp", e)}
               >
                 How You Can Help
               </a>
               {activeDropdown === "howYouCanHelp" && (
                 <ul className="dropdown-menu show">
                   <li>
-                    <Link className="dropdown-item" href="/how-you-can-help/volunteer">
-                      Volunteer
+                    <Link href="/how-you-can-help/volunteer" passHref>
+                      <a className="dropdown-item">Volunteer</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/how-you-can-help/donate">
-                      Donate
+                    <Link href="/how-you-can-help/donate" passHref>
+                      <a className="dropdown-item">Donate</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/how-you-can-help/fundraising">
-                      Fundraising
+                    <Link href="/how-you-can-help/fundraising" passHref>
+                      <a className="dropdown-item">Fundraising</a>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" href="/how-you-can-help/corporate-partnerships">
-                      Corporate Partnerships
+                    <Link href="/how-you-can-help/corporate-partnerships" passHref>
+                      <a className="dropdown-item">Corporate Partnerships</a>
                     </Link>
                   </li>
                 </ul>
               )}
             </li>
 
-            {/* Careers */}
+            {/* Careers (Single Link) */}
             <li className="nav-item me-3">
-              <Link className="nav-link" href="/careers">
-                Careers
+              <Link href="/careers" passHref>
+                <a className="nav-link">Careers</a>
               </Link>
             </li>
 
-            {/* Contact Us */}
+            {/* Contact Us (Single Link) */}
             <li className="nav-item me-3">
-              <Link className="nav-link" href="/contact-us">
-                Contact Us
+              <Link href="/contact-us" passHref>
+                <a className="nav-link">Contact Us</a>
               </Link>
             </li>
           </ul>
