@@ -1,6 +1,5 @@
 import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/css/bootstrap.min.css"; // ✅ Keep only CSS
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
