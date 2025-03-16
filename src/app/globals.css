@@ -56,9 +56,9 @@ footer {
   background-color: #FFFFFF;
   border: 1px solid #ddd;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  display: none; /* hidden by default, shown on hover (desktop) */
-  position: absolute; /* so it floats over content */
-  margin-top: 0; /* remove gap above the menu */
+  display: none; /* Hidden by default, shown on hover for desktop */
+  position: absolute; /* So it floats over content */
+  margin-top: 0;
 }
 
 /* Change dropdown items to dark blue */
@@ -79,26 +79,22 @@ footer {
   #mainNav .nav-item.dropdown:hover .dropdown-menu {
     display: block; /* show menu on hover */
   }
-  /* Keep the caret or arrow styling if needed */
-  #mainNav .nav-item.dropdown .dropdown-toggle::after {
-    margin-left: 0.3em;
-  }
 }
 
 /* === MISSION PAGE STYLES (Move Text Down) === */
 .mission-section {
-  min-height: 80vh; /* Ensures the section takes enough height */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers the text vertically */
-  align-items: center; /* Centers content horizontally */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-top: 150px; /* Ensures text moves down */
+  padding-top: 150px;
 }
 
 @media (max-width: 768px) {
   .mission-section {
-    padding-top: 100px; /* Adjust for mobile */
+    padding-top: 100px;
   }
 }
 

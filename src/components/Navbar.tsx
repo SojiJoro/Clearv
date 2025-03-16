@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Navbar() {
   useEffect(() => {
     // Load Bootstrap JS if you need modals, collapses, etc.
-    // (Hover-based dropdown is handled via CSS, so data-bs-toggle isn't used for these links.)
+    // We are using pure CSS for the hover dropdown, so no data-bs-toggle on the links.
     if (typeof window !== "undefined") {
       require("bootstrap/dist/js/bootstrap.bundle.min.js");
     }
@@ -55,11 +55,9 @@ export default function Navbar() {
 
             {/* Who We Are (Hover Dropdown) */}
             <li className="nav-item dropdown me-3">
-              {/* Parent link with .dropdown-toggle (no data-bs-toggle) */}
               <Link href="#" passHref>
                 <a className="nav-link dropdown-toggle">Who We Are</a>
               </Link>
-              {/* Sub-links appear in .dropdown-menu */}
               <div className="dropdown-menu">
                 <Link href="/who-we-are/mission" passHref>
                   <a className="dropdown-item">Our Mission</a>
@@ -76,18 +74,16 @@ export default function Navbar() {
               </div>
             </li>
 
-            {/* What We Do: Text Link + (Optional) Caret Link */}
-            <li className="nav-item dropdown me-3 d-flex align-items-center">
-              {/* 1) Main text link goes directly to /what-we-do */}
-              <Link href="/what-we-do" passHref>
-                <a className="nav-link">What We Do</a>
+            {/* What We Do (Hover Dropdown) */}
+            <li className="nav-item dropdown me-3">
+              <Link href="#" passHref>
+                <a className="nav-link dropdown-toggle">What We Do</a>
               </Link>
-              {/* 2) Optional caret link, purely for style (no data-bs-toggle) */}
-              <a className="nav-link dropdown-toggle" href="#">
-                <span className="visually-hidden">Toggle Dropdown</span>
-              </a>
-              {/* Dropdown menu with sub-pages */}
               <div className="dropdown-menu">
+                {/* Overview item leads to /what-we-do */}
+                <Link href="/what-we-do" passHref>
+                  <a className="dropdown-item">Overview</a>
+                </Link>
                 <Link href="/what-we-do/adult-social-care" passHref>
                   <a className="dropdown-item">Adult Social Care</a>
                 </Link>
