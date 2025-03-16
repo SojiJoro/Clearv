@@ -1,6 +1,6 @@
 export default function MissionPage() {
   return (
-    <section className="mission-section d-flex flex-column justify-content-center align-items-center text-center">
+    <section className="mission-section">
       <div className="container">
         <h1 className="fw-bold">Our Mission</h1>
         <p className="lead">

@@ -7,9 +7,26 @@ html, body {
   flex-direction: column;
 }
 
-/* Ensure the main content takes up available space */
-main {
+/* Ensure the full-page layout works */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure content pushes footer down */
+.content {
   flex: 1;
+}
+
+/* === FOOTER (Fix for Sticky Footer) === */
+footer {
+  width: 100%;
+  background-color: #164B68;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Push footer to bottom */
 }
 
 /* === NAVBAR STYLES === */
@@ -52,68 +69,21 @@ main {
   color: #45AAE0 !important;
 }
 
-/* === HERO SECTION === */
-.hero {
-  position: relative;
-  background: url('/images/hero-bg.jpg') center/cover no-repeat;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-}
-
-/* Darker Overlay for Better Contrast */
-.hero .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(22, 75, 104, 0.6); /* Darker overlay */
-}
-
-/* Hero Text Link */
-.hero h1 a.hero-link {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Hover Effect for Clickable Hero Text */
-.hero h1 a.hero-link:hover {
-  color: #45AAE0;
-  text-decoration: underline;
-}
-
-/* Improved Button Visibility */
-.hero .btn {
-  font-size: 1.2rem;
-  padding: 14px 28px;
-  border-radius: 5px;
-  font-weight: bold;
-  background-color: #164B68;
-  border: 2px solid white;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Button Hover Effect */
-.hero .btn:hover {
-  background-color: white;
-  color: #164B68;
-  border: 2px solid #164B68;
-}
-
-/* === MISSION PAGE STYLES (Fix for Content Not Showing Properly) === */
+/* === MISSION PAGE STYLES (Move Text Down) === */
 .mission-section {
   min-height: 80vh; /* Ensures the section takes enough height */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centers the content vertically */
+  justify-content: center; /* Centers the text vertically */
   align-items: center; /* Centers content horizontally */
   text-align: center;
-  padding: 100px 0; /* Adjusts spacing */
+  padding-top: 150px; /* Ensures text moves down */
+}
+
+@media (max-width: 768px) {
+  .mission-section {
+    padding-top: 100px; /* Adjust for mobile */
+  }
 }
 
 /* === MAIN CONTENT === */
@@ -145,16 +115,6 @@ h2 {
   font-size: 2.5rem;
 }
 
-/* === FOOTER (Fix for Sticky Footer) === */
-footer {
-  width: 100%;
-  background-color: #164B68;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: auto; /* Push footer to bottom */
-}
-
 /* Social Media Icons */
 footer a {
   color: white;
@@ -182,6 +142,6 @@ footer a:hover {
 
   /* Adjust mission section spacing for mobile */
   .mission-section {
-      padding: 60px 20px;
+      padding-top: 100px;
   }
 }
