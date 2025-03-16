@@ -1,6 +1,7 @@
 export default function MissionPage() {
   return (
-    <section className="mission-section py-5">
+    // We apply Bootstrap's spacing utilities here:
+    <section className="mission-section py-5 mt-5">
       <div className="container">
         {/* Page Heading */}
         <div className="mb-5 text-center">
