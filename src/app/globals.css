@@ -3,8 +3,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Ensure the full-page layout works */
@@ -12,21 +10,25 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  padding-bottom: 80px; /* Adjusted to match footer height */
 }
 
-/* Ensure content pushes footer down */
+/* Ensure content does not push footer but still takes available space */
 .content {
   flex: 1;
 }
 
-/* === FOOTER (Fix for Sticky Footer) === */
+/* === FOOTER (Always Fixed at Bottom) === */
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #164B68;
   color: white;
   padding: 20px 0;
   text-align: center;
-  margin-top: auto; /* Push footer to bottom */
 }
 
 /* === NAVBAR STYLES === */
