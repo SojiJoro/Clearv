@@ -161,3 +161,9 @@ footer a:hover {
     padding-top: 100px;
   }
 }
+.logo-container {
+  background-color: #fff; 
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
