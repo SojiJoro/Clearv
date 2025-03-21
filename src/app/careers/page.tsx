@@ -43,7 +43,7 @@ export default function CareersPage() {
   return (
     <div className="container my-5">
       {/* Careers Landing Content */}
-      <h1 className="mb-4">Careers Landing Page</h1>
+      <h1 className="mb-4">Careers Page</h1>
       <p>
         Welcome to our Careers page. We’re always looking for dedicated, caring individuals
         to join our team. Below, you’ll find our current vacancies. You can search by role
