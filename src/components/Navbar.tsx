@@ -120,13 +120,6 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* How You Can Help (Single Link) */}
-            <li className="nav-item me-3">
-              <Link href="/how-you-can-help" passHref>
-                <a className="nav-link">How You Can Help</a>
-              </Link>
-            </li>
-
             {/* Careers (Single Link) */}
             <li className="nav-item me-3">
               <Link href="/careers" passHref>
