@@ -9,7 +9,7 @@ export default function Home() {
       <header className="hero">
         <div className="overlay"></div>
         <div className="hero-content text-center">
-          <h1>Professional &amp; Person-Centered Care</h1>
+          <h1>Professional & Person-Centered Care</h1>
           <h2>We are your trusted partner in social care, delivering high-quality support.</h2>
           <p>Enhancing Lives with Professional Care.</p>
           <Link
@@ -37,9 +37,9 @@ export default function Home() {
             <div className="card h-100 shadow">
               <div className="card-body text-center">
                 <i className="fas fa-home fa-2x text-primary mb-3"></i>
-                <h5 className="card-title fw-bold">Independent Living</h5>
+                <h5 className="card-title fw-bold">Supported Living</h5>
                 <p className="card-text">
-                  We offer tailored support to help adults with autism live independently.
+                  We offer flexible, individually-tailored supported living services for people with learning disabilities, autism, mental health conditions and associated complex needs.
                   <span className="d-block text-muted small">Fostering independence and self-confidence.</span>
                 </p>
                 <Link
@@ -56,9 +56,9 @@ export default function Home() {
             <div className="card h-100 shadow">
               <div className="card-body text-center">
                 <i className="fas fa-school fa-2x text-success mb-3"></i>
-                <h5 className="card-title fw-bold">Education &amp; Training</h5>
+                <h5 className="card-title fw-bold">Educational & Vocational Support</h5>
                 <p className="card-text">
-                  Our specialized courses empower individuals to reach their full potential.
+                  Our programmes help individuals build skills and gain meaningful work experience through training and vocational opportunities.
                   <span className="d-block text-muted small">Building knowledge and life skills.</span>
                 </p>
                 <Link
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="card h-100 shadow">
               <div className="card-body text-center">
                 <i className="fas fa-chalkboard-teacher fa-2x text-warning mb-3"></i>
-                <h5 className="card-title fw-bold">Careers &amp; Vacancies</h5>
+                <h5 className="card-title fw-bold">Careers & Vacancies</h5>
                 <p className="card-text">
                   Join our dedicated team and make a real difference in people’s lives.
                   <span className="d-block text-muted small">Grow your career while helping others.</span>
@@ -199,7 +199,7 @@ export default function Home() {
           position: relative;
           width: 100%;
           min-height: 70vh;
-          background: url("/images/hero-bg.jpg") center/cover no-repeat; /* Adjust path */
+          background: url("/images/hero-bg.jpg") center/cover no-repeat;
           display: flex;
           align-items: center;
           justify-content: center;
