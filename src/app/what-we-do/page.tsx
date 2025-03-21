@@ -16,9 +16,9 @@ export default function WhatWeDoPage() {
       image: "/images/supported-living.jpg",
     },
     {
-      title: "Education & Vocational Support",
-      href: "/what-we-do/education-training",
-      image: "/images/education-training.jpg",
+      title: "Educational & Vocational Support", // Renamed
+      href: "/what-we-do/educational-vocational-support", // Updated route
+      image: "/images/education-training.jpg", // You can rename this image if you want
     },
   ];
 
