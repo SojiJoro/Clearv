@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FooterTop from "@/components/FooterTop"; // <-- Import your pre-footer
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,7 +22,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Main page content */}
           <main className="content">{children}</main>
 
-          {/* Footer */}
+          {/* Pre-Footer (the darker section with links & address) */}
+          <FooterTop />
+
+          {/* Existing Footer (social icons, etc.) */}
           <Footer />
         </div>
       </body>
