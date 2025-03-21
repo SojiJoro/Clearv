@@ -20,7 +20,7 @@ export default function Navbar() {
           <a className="navbar-brand d-flex align-items-center">
             <Image
               src="/images/logo.png"
-              alt="Clear Vital Logo"
+              alt="Clear Vital Social Care Logo"
               width={50}
               height={50}
               className="logo-stroke me-2"
@@ -127,7 +127,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Careers */}
+            {/* Careers (Single Link) */}
             <li className="nav-item me-3">
               <Link href="/careers" passHref>
                 <a className="nav-link">Careers</a>
