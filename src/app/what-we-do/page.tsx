@@ -11,24 +11,9 @@ export default function WhatWeDoPage() {
       image: "/images/adult-social-care.jpg", // Replace with actual image path
     },
     {
-      title: "Children & Families",
-      href: "/what-we-do/children-families",
-      image: "/images/children-families.jpg",
-    },
-    {
       title: "Supported Living",
       href: "/what-we-do/supported-living",
       image: "/images/supported-living.jpg",
-    },
-    {
-      title: "Residential Care",
-      href: "/what-we-do/residential-care",
-      image: "/images/residential-care.jpg",
-    },
-    {
-      title: "Day Services",
-      href: "/what-we-do/day-services",
-      image: "/images/day-services.jpg",
     },
     {
       title: "Education & Training",
