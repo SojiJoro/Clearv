@@ -86,7 +86,7 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* What We Do (Dropdown) */}
+            {/* Services (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
@@ -94,26 +94,26 @@ export default function Navbar() {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                What We Do
+                Services
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <Link href="/what-we-do" passHref>
+                  <Link href="/services" passHref>
                     <a className="dropdown-item">Overview</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/what-we-do/adult-social-care" passHref>
+                  <Link href="/services/adult-social-care" passHref>
                     <a className="dropdown-item">Adult Social Care</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/what-we-do/supported-living" passHref>
+                  <Link href="/services/supported-living" passHref>
                     <a className="dropdown-item">Supported Living</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/what-we-do/educational-vocational-support" passHref>
+                  <Link href="/services/educational-vocational-support" passHref>
                     <a className="dropdown-item">Educational & Vocational Support</a>
                   </Link>
                 </li>
@@ -129,20 +129,4 @@ export default function Navbar() {
 
             {/* Careers (Single Link) */}
             <li className="nav-item me-3">
-              <Link href="/careers" passHref>
-                <a className="nav-link">Careers</a>
-              </Link>
-            </li>
-
-            {/* Contact Us */}
-            <li className="nav-item me-3">
-              <Link href="/contact-us" passHref>
-                <a className="nav-link">Contact Us</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-}
+         
