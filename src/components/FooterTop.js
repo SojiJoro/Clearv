@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,12 +9,14 @@ export default function FooterTop() {
         <div className="row g-4">
           {/* Column 1: Logo */}
           <div className="col-md-3">
-            <Image
-              src="/images/logo.png"
-              alt="Clear Vital Social Care Logo"
-              width={150}
-              height={80}
-            />
+            <div className="logo-container d-flex align-items-center justify-content-center">
+              <Image
+                src="/images/logo.png"
+                alt="Clear Vital Social Care Logo"
+                width={120}
+                height={120}
+              />
+            </div>
           </div>
 
           {/* Column 2: LINKS (Top Menus) */}
@@ -23,34 +24,22 @@ export default function FooterTop() {
             <h5 className="fw-bold mb-3">LINKS</h5>
             <ul className="list-unstyled">
               <li>
-                <Link href="/" className="text-white">
-                  Home
-                </Link>
+                <Link href="/" className="text-white">Home</Link>
               </li>
               <li>
-                <Link href="/who-we-are/mission" className="text-white">
-                  Who We Are
-                </Link>
+                <Link href="/who-we-are" className="text-white">Who We Are</Link>
               </li>
               <li>
-                <Link href="/what-we-do" className="text-white">
-                  What We Do
-                </Link>
+                <Link href="/what-we-do" className="text-white">What We Do</Link>
               </li>
               <li>
-                <Link href="/how-you-can-help" className="text-white">
-                  How You Can Help
-                </Link>
+                <Link href="/how-you-can-help" className="text-white">How You Can Help</Link>
               </li>
               <li>
-                <Link href="/careers" className="text-white">
-                  Careers
-                </Link>
+                <Link href="/careers" className="text-white">Careers</Link>
               </li>
               <li>
-                <Link href="/contact-us" className="text-white">
-                  Contact Us
-                </Link>
+                <Link href="/contact-us" className="text-white">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -77,7 +66,7 @@ export default function FooterTop() {
             </ul>
           </div>
 
-          {/* Column 4: GET IN TOUCH (Address & Email) */}
+          {/* Column 4: GET IN TOUCH */}
           <div className="col-md-3">
             <h5 className="fw-bold mb-3">GET IN TOUCH</h5>
             <p className="mb-1">29 Alders Road</p>
