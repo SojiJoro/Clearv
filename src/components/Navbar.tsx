@@ -108,28 +108,14 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/what-we-do/children-families" passHref>
-                    <a className="dropdown-item">Children & Families</a>
-                  </Link>
-                </li>
-                <li>
                   <Link href="/what-we-do/supported-living" passHref>
                     <a className="dropdown-item">Supported Living</a>
                   </Link>
                 </li>
+                {/* Renamed Education & Training */}
                 <li>
-                  <Link href="/what-we-do/residential-care" passHref>
-                    <a className="dropdown-item">Residential Care</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/what-we-do/day-services" passHref>
-                    <a className="dropdown-item">Day Services</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/what-we-do/education-training" passHref>
-                    <a className="dropdown-item">Education & Training</a>
+                  <Link href="/what-we-do/educational-vocational-support" passHref>
+                    <a className="dropdown-item">Educational & Vocational Support</a>
                   </Link>
                 </li>
               </ul>
