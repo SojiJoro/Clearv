@@ -13,9 +13,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
       <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo and Home Link */}
+        {/* Logo & Home Link */}
         <Link href="/" passHref>
           <a className="navbar-brand d-flex align-items-center">
             <Image

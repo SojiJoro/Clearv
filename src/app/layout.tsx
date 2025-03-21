@@ -10,19 +10,15 @@ export const metadata: Metadata = {
   description: "Providing care, support, and education for people with autism.",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <div className="page-container">
-          {/* Single, Global Navigation Bar */}
+          {/* Single global navigation bar */}
           <Navbar />
 
-          {/* Main Page Content */}
+          {/* Main page content */}
           <main className="content">{children}</main>
 
           {/* Footer */}
