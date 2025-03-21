@@ -129,4 +129,20 @@ export default function Navbar() {
 
             {/* Careers (Single Link) */}
             <li className="nav-item me-3">
-         
+              <Link href="/careers" passHref>
+                <a className="nav-link">Careers</a>
+              </Link>
+            </li>
+
+            {/* Contact Us (Single Link) */}
+            <li className="nav-item me-3">
+              <Link href="/contact-us" passHref>
+                <a className="nav-link">Contact Us</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+}
