@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div className="container d-flex justify-content-between align-items-center">
-        {/* Logo & Home Link */}
+        {/* Logo and Home Link */}
         <Link href="/" passHref>
           <a className="navbar-brand d-flex align-items-center">
             <Image
@@ -52,7 +52,7 @@ export default function Navbar() {
               </Link>
             </li>
 
-            {/* Who We Are (Hybrid Dropdown) */}
+            {/* Who We Are (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
@@ -86,7 +86,7 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* What We Do (Hybrid Dropdown) */}
+            {/* What We Do (Dropdown) */}
             <li className="nav-item dropdown me-3">
               <a
                 className="nav-link dropdown-toggle"
@@ -112,7 +112,6 @@ export default function Navbar() {
                     <a className="dropdown-item">Supported Living</a>
                   </Link>
                 </li>
-                {/* Renamed Education & Training */}
                 <li>
                   <Link href="/what-we-do/educational-vocational-support" passHref>
                     <a className="dropdown-item">Educational & Vocational Support</a>
@@ -121,38 +120,11 @@ export default function Navbar() {
               </ul>
             </li>
 
-            {/* How You Can Help (Hybrid Dropdown) */}
-            <li className="nav-item dropdown me-3">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                How You Can Help
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link href="/how-you-can-help/volunteer" passHref>
-                    <a className="dropdown-item">Volunteer</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/how-you-can-help/donate" passHref>
-                    <a className="dropdown-item">Donate</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/how-you-can-help/fundraising" passHref>
-                    <a className="dropdown-item">Fundraising</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/how-you-can-help/corporate-partnerships" passHref>
-                    <a className="dropdown-item">Corporate Partnerships</a>
-                  </Link>
-                </li>
-              </ul>
+            {/* How You Can Help (Single Link) */}
+            <li className="nav-item me-3">
+              <Link href="/how-you-can-help" passHref>
+                <a className="nav-link">How You Can Help</a>
+              </Link>
             </li>
 
             {/* Careers */}
