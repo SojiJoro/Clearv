@@ -102,7 +102,7 @@ export default function Home() {
               <h2 className="fw-bold text-dark mb-3">Contact Us</h2>
               <p className="text-muted">You can reach out by completing the form or emailing us at:</p>
               <p className="fw-bold text-primary">
-                <a href="mailto:contact@clearvitalsocialcare.com" className="text-primary">
+                <a href="mailto:info@clearvitalsocialcare.com" className="text-primary">
                   info@clearvitalsocialcare.com
                 </a>
               </p>
