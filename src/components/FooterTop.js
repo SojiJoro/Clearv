@@ -77,9 +77,10 @@ export default function FooterTop() {
           {/* Column 4: Get in Touch */}
           <div className="col-md-3">
             <h5 className="fw-bold mb-3">Get in Touch</h5>
-            <p className="mb-1">29 Alders Road</p>
-            <p className="mb-1">Fareham, England</p>
-            <p className="mb-1">PO16 0SH</p>
+            <p className="mb-1">Ground Floor, Building 1000</p>
+            <p className="mb-1">Western Road, Portsmouth</p>
+            <p className="mb-1">Hampshire</p>
+            <p className="mb-1">PO6 3EZ</p>
             <p className="mb-1">
               Email:{" "}
               <Link href="mailto:info@clearvitalsocialcare.com" className="text-white">
