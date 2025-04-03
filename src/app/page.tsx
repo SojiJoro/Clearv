@@ -22,13 +22,23 @@ export default function Home() {
         </div>
       </header>
 
-      {/* MAIN CONTENT SECTION */}
-      <section className="container my-5">
-        <div className="text-center">
-          <h2 className="fw-bold">Welcome to Clear Vital Social Care</h2>
-          <p>This is the home page content. Replace it with your own text or add more sections as needed.</p>
-        </div>
-      </section>
+     {/* MAIN CONTENT SECTION */}
+<section className="container my-5">
+  <div className="text-center">
+    <h2 className="fw-bold">Welcome to Clear Vital Social Care</h2>
+    <p className="lead mb-4">Empowering Lives Through Professional Care and Support Services</p>
+    <div className="row justify-content-center">
+      <div className="col-lg-8">
+        <p className="mb-4">
+          At Clear Vital Social Care, we are dedicated to providing exceptional person-centered care and support services. Our commitment to quality care and professional excellence ensures that every individual we support has the opportunity to live a fulfilling and independent life.
+        </p>
+        <p className="mb-4">
+          Through our comprehensive range of services, we support individuals with learning disabilities, autism, mental health conditions, and associated complex needs. Our experienced team works collaboratively to create personalised care plans that promote independence, dignity, and personal growth.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
     {/* FEATURED SECTIONS */}
 <section className="container my-5">
