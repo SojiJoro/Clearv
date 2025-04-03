@@ -30,68 +30,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED SECTIONS */}
-      <section className="container my-5">
-        <div className="row g-4">
-          <div className="col-md-4">
-            <div className="card h-100 shadow">
-              <div className="card-body text-center">
-                <i className="fas fa-home fa-2x text-primary mb-3"></i>
-                <h5 className="card-title fw-bold">Supported Living</h5>
-                <p className="card-text">
-                  We offer flexible, individually-tailored supported living services for people with learning disabilities, autism, mental health conditions and associated complex needs.
-                  <span className="d-block text-muted small">Fostering independence and self-confidence.</span>
-                </p>
-                <Link
-                  href="/what-we-do/adult-social-care"
-                  className="btn btn-outline-primary"
-                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
-                >
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card h-100 shadow">
-              <div className="card-body text-center">
-                <i className="fas fa-school fa-2x text-success mb-3"></i>
-                <h5 className="card-title fw-bold">Educational & Vocational Support</h5>
-                <p className="card-text">
-                  Our programmes help individuals build skills and gain meaningful work experience through training and vocational opportunities.
-                  <span className="d-block text-muted small">Building knowledge and life skills.</span>
-                </p>
-                <Link
-                  href="/what-we-do/education-training"
-                  className="btn btn-outline-success"
-                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
-                >
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card h-100 shadow">
-              <div className="card-body text-center">
-                <i className="fas fa-chalkboard-teacher fa-2x text-warning mb-3"></i>
-                <h5 className="card-title fw-bold">Careers & Vacancies</h5>
-                <p className="card-text">
-                  Join our dedicated team and make a real difference in people’s lives.
-                  <span className="d-block text-muted small">Grow your career while helping others.</span>
-                </p>
-                <Link
-                  href="/careers/current-vacancies"
-                  className="btn btn-outline-warning"
-                  style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
-                >
-                  Read More
-                </Link>
-              </div>
-            </div>
-          </div>
+    {/* FEATURED SECTIONS */}
+<section className="container my-5">
+  <div className="row g-4">
+    <div className="col-md-4">
+      <div className="card h-100 shadow">
+        <div className="card-body text-center">
+          <i className="fas fa-home fa-2x text-primary mb-3"></i>
+          <h5 className="card-title fw-bold">Supported Living</h5>
+          <p className="card-text">
+            We offer flexible, individually-tailored supported living services for people with learning disabilities, autism, mental health conditions and associated complex needs.
+            <span className="d-block text-muted small">Fostering independence and self-confidence.</span>
+          </p>
+          <Link
+            href="https://www.clearvitalsocialcare.com/services/supported-living"
+            className="btn btn-outline-primary"
+            style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+          >
+            Read More
+          </Link>
         </div>
-      </section>
+      </div>
+    </div>
+    <div className="col-md-4">
+      <div className="card h-100 shadow">
+        <div className="card-body text-center">
+          <i className="fas fa-school fa-2x text-success mb-3"></i>
+          <h5 className="card-title fw-bold">Educational & Vocational Support</h5>
+          <p className="card-text">
+            Our programmes help individuals build skills and gain meaningful work experience through training and vocational opportunities.
+            <span className="d-block text-muted small">Building knowledge and life skills.</span>
+          </p>
+          <Link
+            href="https://www.clearvitalsocialcare.com/services/educational-vocational-support"
+            className="btn btn-outline-success"
+            style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+          >
+            Read More
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div className="col-md-4">
+      <div className="card h-100 shadow">
+        <div className="card-body text-center">
+          <i className="fas fa-chalkboard-teacher fa-2x text-warning mb-3"></i>
+          <h5 className="card-title fw-bold">Careers & Vacancies</h5>
+          <p className="card-text">
+            Join our dedicated team and make a real difference in people's lives.
+            <span className="d-block text-muted small">Grow your career while helping others.</span>
+          </p>
+          <Link
+            href="https://www.clearvitalsocialcare.com/careers"
+            className="btn btn-outline-warning"
+            style={{ backgroundColor: "#164B68", borderColor: "#164B68", color: "#fff" }}
+          >
+            Read More
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* CONTACT SECTION */}
       <section className="contact-section py-5 bg-light mb-0">
